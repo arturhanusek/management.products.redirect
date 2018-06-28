@@ -3,23 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="http://momentjs.com/downloads/moment.js"></script>
+    <script src="js/moment.js"></script>
     <script>
         window.onload = function()
         {
             var url_string = window.location.href;
-            var url = new URL(url_string);
-            var fwd_url = url.searchParams.get("url");
 
-            fwd_url = fwd_url.replace("{{lastWeekMonday}}", moment().subtract(1, 'week').day("Monday").format('YYYY-MM-DD'));
-            fwd_url = fwd_url.replace("{{lastWeekSunday}}", moment().subtract(1, 'week').day("Sunday").format('YYYY-MM-DD'));
+            var fwd_url = url_string.replace("http://redirect.products.management/?url=", "");
+
+            if (url_string.search("https://redirect.products.management/?url=") < 0 ) {
+                console.log("Incorrect URL");
+                return;
+            }
+
+            console.log('fwd_url', fwd_url);
+
+            if(fwd_url) {
+                fwd_url = fwd_url.replace("{{yesterday}}", moment().subtract(1, 'day').format('YYYY-MM-DD'));
+                fwd_url = fwd_url.replace("{{lastWeekMonday}}", moment().subtract(1, 'week').day("Monday").format('YYYY-MM-DD'));
+                fwd_url = fwd_url.replace("{{lastWeekSunday}}", moment().subtract(1, 'week').day("Sunday").format('YYYY-MM-DD'));
+                fwd_url = fwd_url.replace("{{month-1}}", moment().subtract(1, 'month').format('YYYY-MM-DD'));
+                console.log('Relocation',fwd_url)
+            }
 
             // similar behavior as an HTTP redirect
-             window.location.replace(fwd_url);
+            window.location.replace(fwd_url);
         }
     </script>
 </head>
 <body>
-
+https://redirect.products.management/?url=
 </body>
 </html>
