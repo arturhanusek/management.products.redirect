@@ -12,6 +12,7 @@
             var fwd_url = url.searchParams.get("url");
 
             fwd_url = fwd_url.replace("{{lastWeekMonday}}", moment().subtract(1, 'week').day("Monday").format('YYYY-MM-DD'));
+            fwd_url = fwd_url.replace("{{lastWeekSunday}}", moment().subtract(1, 'week').day("Sunday").format('YYYY-MM-DD'));
 
             // similar behavior as an HTTP redirect
              window.location.replace(fwd_url);
