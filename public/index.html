@@ -24,7 +24,7 @@
                 fwd_url = fwd_url.replace("{{lastWeekMonday}}", moment().subtract(1, 'week').day("Monday").format('YYYY-MM-DD'));
                 fwd_url = fwd_url.replace("{{lastWeekSunday}}", moment().subtract(1, 'week').day("Sunday").format('YYYY-MM-DD'));
 
-                fwd_url = fwd_url.replace("{{thisWeekSunday}}", moment().subtract(1, 'week').day("Sunday").format('YYYY-MM-DD'));
+                fwd_url = fwd_url.replace("{{thisWeekSunday}}", moment().day("Sunday").format('YYYY-MM-DD'));
 
                 fwd_url = fwd_url.replace("{{month-1}}", moment().subtract(1, 'month').format('YYYY-MM-DD'));
                 console.log('Relocation',fwd_url)
