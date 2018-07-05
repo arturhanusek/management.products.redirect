@@ -5,6 +5,15 @@
     <title>Products Management Redirect</title>
     <script src="js/moment.js"></script>
     <script>
+        function replaceText(selector, text, newText, flags) {
+            var matcher = new RegExp(text, flags);
+            var elems = document.querySelectorAll(selector), i;
+
+            for (i = 0; i < elems.length; i++)
+                if (!elems[i].childNodes.length)
+                    elems[i].innerHTML = elems[i].innerHTML.replace(matcher, newText);
+        }
+
         window.onload = function()
         {
             var url_string = window.location.href;
@@ -21,6 +30,7 @@
             if(fwd_url) {
                 fwd_url = fwd_url.replace("{{yesterday}}", moment().subtract(1, 'day').format('YYYY-MM-DD'));
                 fwd_url = fwd_url.replace("{{yesterday.DD MMMM YYYY}}", moment().subtract(1, 'day').format('DD MMMM YYYY'));
+                fwd_url = fwd_url.replace("{{yesterday.DD%20MMMM%20YYYY}}", moment().subtract(1, 'day').format('DD MMMM YYYY'));
                 fwd_url = fwd_url.replace("{{yesterday.DD%20MMMM%20YYYY}}", moment().subtract(1, 'day').format('DD MMMM YYYY'));
 
                 fwd_url = fwd_url.replace("{{lastWeekMonday}}", moment().subtract(1, 'week').day("Monday").format('YYYY-MM-DD'));
