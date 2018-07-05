@@ -21,6 +21,7 @@
             if(fwd_url) {
                 fwd_url = fwd_url.replace("{{yesterday}}", moment().subtract(1, 'day').format('YYYY-MM-DD'));
                 fwd_url = fwd_url.replace("{{yesterday.DD MMMM YYYY}}", moment().subtract(1, 'day').format('DD MMMM YYYY'));
+                fwd_url = fwd_url.replace("{{yesterday.DD%20MMMM%20YYYY}}", moment().subtract(1, 'day').format('DD MMMM YYYY'));
 
                 fwd_url = fwd_url.replace("{{lastWeekMonday}}", moment().subtract(1, 'week').day("Monday").format('YYYY-MM-DD'));
                 fwd_url = fwd_url.replace("{{lastWeekSunday}}", moment().subtract(1, 'week').day("Sunday").format('YYYY-MM-DD'));
