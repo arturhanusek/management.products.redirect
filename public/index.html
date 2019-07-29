@@ -18,12 +18,12 @@
         {
             var url_string = window.location.href;
 
-            if (url_string.search("https://redirect.products.management/\\?url=") < 0 ) {
+            if (url_string.search("https://redirect.coding.cab/\\?url=") < 0 ) {
                 console.log("Incorrect URL", url_string);
                 return;
             }
 
-            var fwd_url = url_string.replace("https://redirect.products.management/?url=", "");
+            var fwd_url = url_string.replace("https://redirect.coding.cab/?url=", "");
 
             console.log('fwd_url', fwd_url);
 
@@ -51,6 +51,6 @@
     </script>
 </head>
 <body>
-https://redirect.products.management/?url=
+https://redirect.coding.cab/?url=
 </body>
 </html>
